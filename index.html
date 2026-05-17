@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farid Shop Game - Premium Game Accounts | Community Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-dark: #07090f;
+            --secondary-dark: #0e1220;
+            --accent-blue: #00BFFF;
+            --accent-yellow: #FFD700;
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --border-color: #1a2035;
+            /* Alias */
+            --accent-neon: #00BFFF;
+            --accent-cyan: #00BFFF;
+            --accent-purple: #FFD700;
+
+            /* Variables from landingpagelynkid */
+            --blue-deep: #020b1a;
+            --blue-mid: #041433;
+            --blue-bright: #0ea5e9;
+            --blue-glow: #38bdf8;
+            --yellow: #fbbf24;
+            --yellow-light: #fde68a;
+            --yellow-glow: #f59e0b;
+            --white: #f8fafc;
+            --muted: #94a3b8;
+            --border: rgba(14, 165, 233, 0.2);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #07090f 0%, #0e1220 50%, #080c18 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* === ANIMATED BACKGROUND === */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.18;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .glow-1 {
+            width: 500px;
+            height: 500px;
+            background: #00BFFF;
+            top: -150px;
+            left: -150px;
+            animation-delay: 0s;
+        }
+
+        .glow-2 {
+            width: 350px;
+            height: 350px;
+            background: #FFD700;
+            top: 40%;
+            right: -150px;
+            animation-delay: -7s;
+        }
+
+        .glow-3 {
+            width: 400px;
+            height: 400px;
+            background: #00BFFF;
+            bottom: -100px;
+            left: 30%;
+            animation-delay: -14s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(30px, -20px); }
+            66% { transform: translate(-20px, 30px); }
+        }
+
+
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.5));
+        }
+
+        /* === HEADER === */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(2, 11, 26, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1.2rem 4rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.03);
+        }
+
+        .logo-text {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, var(--blue-glow), var(--yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+        }
+
+        .nav-cta {
+            background: var(--yellow);
+            color: #000;
+            padding: 0.6rem 1.6rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-cta:hover {
+            background: var(--yellow-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 160px 4rem 100px 4rem;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.4);
+            color: var(--yellow);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.8rem;
+        }
+
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--yellow);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero h1 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .hero h1 .line1 {
+            color: var(--white);
+            display: block;
+        }
+
+        .hero h1 .line2 {
+            background: linear-gradient(90deg, var(--blue-glow), var(--yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .hero-desc {
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            max-width: 580px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3.5rem;
+        }
+
+        .btn-main {
+            background: linear-gradient(135deg, var(--yellow), var(--yellow-glow));
+            color: #000;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.3);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(251, 191, 36, 0.5);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--blue-glow);
+            border: 1.5px solid var(--blue-glow);
+            padding: 0.95rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(14, 165, 233, 0.1);
+            transform: translateY(-4px);
+        }
+
+        /* === LINK TREE SECTION === */
+        .link-tree-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            width: 100%;
+            padding: 0 1rem;
+        }
+
+        .link-category {
+            text-align: left;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .link-tree-btn {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: saturate(180%) blur(28px);
+            -webkit-backdrop-filter: saturate(180%) blur(28px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.18),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-tree-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.07) 0%, transparent 100%);
+            border-radius: 20px 20px 0 0;
+            pointer-events: none;
+        }
+
+        .link-tree-btn:hover {
+            transform: translateY(-4px) scale(1.01);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 215, 0, 0.35);
+            box-shadow:
+                0 12px 35px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(0, 191, 255, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+            color: #FFD700;
+        }
+        
+        .link-tree-btn::after {
+            content: '→';
+            font-size: 1.2rem;
+            color: var(--accent-neon);
+            transition: transform 0.3s ease;
+        }
+
+        .link-tree-btn:hover::after {
+            transform: translateX(5px);
+            color: #ffffff;
+        }
+
+        /* === STATS === */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 2.5rem;
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* === ADVANTAGES SECTION === */
+        .advantages {
+            padding: 100px 2rem;
+            background: transparent;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 3rem;
+            text-align: center;
+            letter-spacing: -1px;
+        }
+
+        .section-title .highlight {
+            background: linear-gradient(135deg, var(--accent-neon) 0%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .advantages-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .adv-card {
+            background: rgba(0, 191, 255, 0.04);
+            border: 1px solid rgba(0, 191, 255, 0.12);
+            padding: 2.5rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .adv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #00BFFF 0%, #FFD700 100%);
+        }
+
+        .adv-card:hover {
+            border-color: rgba(0, 191, 255, 0.3);
+            background: rgba(0, 191, 255, 0.08);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 191, 255, 0.15);
+        } 
+
+        .adv-icon {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .adv-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .adv-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* === KEUNGGULAN SECTION === */
+        .keunggulan {
+            padding: 100px 2rem;
+            background: transparent;
+        }
+
+        .keunggulan-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, rgba(0, 191, 255, 0.07) 0%, rgba(255, 215, 0, 0.07) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            border-color: rgba(255, 215, 0, 0.5);
+            background: linear-gradient(135deg, rgba(0, 191, 255, 0.1) 0%, rgba(255, 215, 0, 0.12) 100%);
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.1);
+        }
+
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .benefit-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* === PRODUCTS SHOWCASE === */
+        .products {
+            padding: 100px 2rem;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .products-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: rgba(255, 215, 0, 0.04);
+            border: 1px solid rgba(255, 215, 0, 0.12);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            border-color: rgba(255, 215, 0, 0.4);
+            background: rgba(255, 215, 0, 0.08);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.15);
+        }
+
+        .product-emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-count {
+            color: var(--accent-neon);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* === TESTIMONIALS === */
+        .testimonials {
+            padding: 100px 2rem;
+            background: transparent;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: rgba(0, 191, 255, 0.04);
+            border: 1px solid rgba(0, 191, 255, 0.12);
+            border-left: 3px solid #FFD700;
+            padding: 2rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial:hover {
+            border-color: rgba(255, 215, 0, 0.3);
+            background: rgba(0, 191, 255, 0.07);
+        }
+
+        .stars {
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--accent-neon) 0%, var(--accent-cyan) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .author-name {
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-role {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* === CTA SECTION === */
+        .final-cta {
+            padding: 80px 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 191, 255, 0.07) 0%, rgba(255, 215, 0, 0.07) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            border-radius: 24px;
+            max-width: 800px;
+            margin: 80px auto;
+            box-shadow: 0 0 50px rgba(0, 191, 255, 0.1);
+        }
+
+        .final-cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: rgba(0, 10, 26, 0.95);
+            border-top: 2px solid var(--border-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--accent-neon);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 120px 1.5rem 60px 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem !important;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .logo {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* === SCROLL ANIMATION === */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal-up.active, .reveal-left.active, .reveal-right.active, .reveal-scale.active {
+            opacity: 1;
+            transform: translate(0) scale(1);
+        }
+
+        /* === HERO ENTRANCE ANIMATIONS === */
+        .animate-in-up {
+            animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+        }
+        .animate-in-scale {
+            animation: scaleFade 1s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+        }
+        .animate-in-down {
+            animation: slideDownFade 1s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+        }
+
+        @keyframes slideUpFade {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideDownFade {
+            from { opacity: 0; transform: translateY(-60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scaleFade {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.4s; }
+        .delay-4 { animation-delay: 0.6s; }
+        .delay-5 { animation-delay: 0.8s; }
+    </style>
+</head>
+<body>
+
+    <!-- ANIMATED BACKGROUND -->
+    <canvas id="bg-canvas"></canvas>
+
+    <header class="animate-in-down">
+        <div class="header-content">
+            <a href="#" class="logo-container">
+                <img src="logo.png" class="logo-img" alt="Farid Shop Logo">
+                <div class="logo-text">FARID SHOP</div>
+            </a>
+            <nav class="nav-links">
+                <a href="#advantages">Keunggulan</a>
+                <a href="#products">Games</a>
+                <a href="#testimonials">Review</a>
+                <a href="https://whatsapp.com/channel/0029Vaqx2ZwGpLHI6ojo9m1g" target="_blank">Saluran WA</a>
+            </nav>
+            <a href="https://wa.me/628781497713" target="_blank" class="nav-cta">Beli Sekarang</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge animate-in-up delay-1">
+                <span class="badge-dot"></span> Pusat Stok #1 Unniverse
+            </div>
+            
+            <h1 class="animate-in-up delay-2">
+                <span class="line1">Jual Beli Account</span>
+                <span class="line2">Farid Shop Game</span>
+            </h1>
+            
+            <p class="hero-desc animate-in-up delay-3">
+                500+ akun terjual. Harga paling terjangkau, transaksi aman & cepat, bergaransi penuh. Dipercaya ribuan gamer Indonesia.
+            </p>
+
+            <div class="hero-buttons animate-in-up delay-4">
+                <a href="https://wa.me/6287814897713" target="_blank" class="btn-main">⚡ Beli Sekarang</a>
+                <a href="#link-tree" class="btn-ghost">Lihat Koleksi</a>
+            </div>
+
+            <!-- LINK TREE SECTION -->
+            <div id="link-tree" class="link-tree-section animate-in-up delay-5" style="scroll-margin-top: 100px;">
+                <!-- CONTACT: 2 Baris -->
+                <h3 class="link-category">📞 Contact</h3>
+                <a href="https://wa.me/628781497713" target="_blank" class="link-tree-btn">Wa Jual beli akun</a>
+                <a href="https://wa.me/6285741257176" target="_blank" class="link-tree-btn">Wa cadangan</a>
+
+                <!-- SALURAN: 4 Baris -->
+                <h3 class="link-category">📢 Saluran Resmi</h3>
+                <a href="https://whatsapp.com/channel/0029Vaqx2ZwGpLHI6ojo9m1g" target="_blank" class="link-tree-btn">Saluran Stok Utama</a>
+                <a href="https://whatsapp.com/channel/0029VbAsdPwG8l59cKXjOm2n" target="_blank" class="link-tree-btn">Saluran Full Stok 2</a>
+                <a href="https://whatsapp.com/channel/0029VbCHXTbBKfi3J8REei2o" target="_blank" class="link-tree-btn">Saluran Testimoni</a>
+                <a href="https://whatsapp.com/channel/0029Vb72jnl4yltI81JEng2Q" target="_blank" class="link-tree-btn">Sistem Penyetor</a>
+
+                <!-- GRUP: 5 Baris -->
+                <h3 class="link-category">👥 Grup Komunitas</h3>
+                <a href="https://chat.whatsapp.com/Ih0JMO3tHUiLXADlfWebUY?mode=gi_t" target="_blank" class="link-tree-btn">STOK 1 FARID SHOP</a>
+                <a href="https://chat.whatsapp.com/FcUdaACZ9c6BGCyPq3bm0e?mode=gi_t" target="_blank" class="link-tree-btn">STOK 2 FARID SHOP</a>
+                <a href="https://chat.whatsapp.com/D1tOLIFEq5jClNemVFcIAZ?mode=gi_t" target="_blank" class="link-tree-btn">STOK 3 FARID SHOP</a>
+                <a href="https://chat.whatsapp.com/D1tOLIFEq5jClNemVFcIAZ?mode=gi_t" target="_blank" class="link-tree-btn">STOK 4 FARID SHOP</a>
+                <a href="https://chat.whatsapp.com/LQWspTwEgI76HxBpcJftcZ?mode=gi_t" target="_blank" class="link-tree-btn">STOK 5 FARID SHOP</a>
+                <a href="https://chat.whatsapp.com/Io5k4E6HAXGL7BQZkKofyy?mode=gi_t" target="_blank" class="link-tree-btn">STOK 6 FARID SHOP</a>
+                <a href="https://chat.whatsapp.com/KBuqEc0jqkiKwTIJ2Vmcxa?mode=gi_t" target="_blank" class="link-tree-btn">STOK 7 FARID SHOP</a>
+            </div>
+
+            <div class="hero-stats animate-in-scale delay-5" style="margin-top: 5rem;">
+                <div class="stat">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Akun Terjual</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Puas & Aman</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">10h</div>
+                    <div class="stat-label">Fast Response</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEUNTUNGAN SECTION -->
+    <section id="advantages" class="advantages" style="scroll-margin-top: 80px;">
+        <h2 class="section-title">Keuntungan Belanja di <span class="highlight">Farid Shop Game </span></h2>
+        
+        <div class="advantages-grid">
+            <div class="adv-card reveal-up">
+                <div class="adv-icon">⚡</div>
+                <h3>Fast Response 10 Jam</h3>
+                <p>Respon cepat dari tim kami. Setiap pertanyaan dijawab dalam 10 jam.</p>
+            </div>
+
+            <div class="adv-card reveal-up" style="transition-delay: 0.1s;">
+                <div class="adv-icon">📚</div>
+                <h3>Panduan Lengkap Akun</h3>
+                <p>Tutorial detail cara ganti password, verifikasi akun, dan mengamankan akun kamu.</p>
+            </div>
+
+            <div class="adv-card reveal-up" style="transition-delay: 0.2s;">
+                <div class="adv-icon">⚙️</div>
+                <h3>Transaksi Mudah & Cepat</h3>
+                <p>Proses checkout yang simple. Akun langsung dikirim setelah pembayaran terverifikasi.</p>
+            </div>
+
+            <div class="adv-card reveal-up" style="transition-delay: 0.3s;">
+                <div class="adv-icon">💰</div>
+                <h3>Harga Paling Terjangkau</h3>
+                <p>Harga bersaing di pasaran. Cek harga kompetitor, kami jauh lebih murah!</p>
+            </div>
+
+            <div class="adv-card reveal-up" style="transition-delay: 0.4s;">
+                <div class="adv-icon">🔐</div>
+                <h3>Setiap Akun Bergaransi</h3>
+                <p>100% garansi. Akun tidak bisa diambil kembali atau ada masalah? Ganti baru.</p>
+            </div>
+
+            <div class="adv-card reveal-up" style="transition-delay: 0.5s;">
+                <div class="adv-icon">✅</div>
+                <h3>Sudah Terbukti</h3>
+                <p>Dipercaya ribuan gamer. Sudah paid promote OMLING JB, verified seller, 100% aman.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEUNGGULAN SECTION -->
+    <section id="keunggulan" class="keunggulan" style="scroll-margin-top: 80px;">
+        <h2 class="section-title">Mengapa <span class="highlight">Pilih Store Kami?</span></h2>
+        
+        <div class="keunggulan-grid">
+            <div class="benefit-card reveal-left">
+                <div class="benefit-icon">🚀</div>
+                <h3>500+ Akun Terjual</h3>
+                <p>Ribuan gamer puas telah membuktikan kualitas layanan kami.</p>
+            </div>
+
+            <div class="benefit-card reveal-left" style="transition-delay: 0.1s;">
+                <div class="benefit-icon">🛡️</div>
+                <h3>100% Aman</h3>
+                <p>Akun original, email aman, tidak ada risiko suspend atau banned.</p>
+            </div>
+
+            <div class="benefit-card reveal-left" style="transition-delay: 0.2s;">
+                <div class="benefit-icon">⭐</div>
+                <h3>Bergaransi Seumur Hidup</h3>
+                <p>Akun memiliki masalah? Klaim garansi kapan saja tanpa batas waktu.</p>
+            </div>
+
+            <div class="benefit-card reveal-right">
+                <div class="benefit-icon">📱</div>
+                <h3>Paid Promote Omling JB</h3>
+                <p>Dipromosikan di berbagai platform. Sudah verifikasi, terpercaya & legal.</p>
+            </div>
+
+            <div class="benefit-card reveal-right" style="transition-delay: 0.1s;">
+                <div class="benefit-icon">💬</div>
+                <h3>Customer Support 24/7</h3>
+                <p>Tim siap membantu kapan saja. Chat, WhatsApp, atau Discord tersedia.</p>
+            </div>
+
+            <div class="benefit-card reveal-right" style="transition-delay: 0.2s;">
+                <div class="benefit-icon">🎁</div>
+                <h3>Bonus & Promo Menarik</h3>
+                <p>Setiap bulan ada promo. Beli lebih banyak = Hemat lebih banyak!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section id="products" class="products" style="scroll-margin-top: 80px;">
+        <h2 class="section-title">Game Favorit yang <span class="highlight">Kami Jual</span></h2>
+        
+        <div class="products-grid">
+            <div class="product-card reveal-scale">
+                <div class="product-emoji">🎮</div>
+                <div class="product-name">Mobile Legends</div>
+                <div class="product-count">250+ Akun Ready</div>
+            </div>
+
+            <div class="product-card reveal-scale" style="transition-delay: 0.1s;">
+                <div class="product-emoji">🔥</div>
+                <div class="product-name">Free Fire</div>
+                <div class="product-count">180+ Akun Ready</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="testimonials" style="scroll-margin-top: 80px;">
+        <h2 class="section-title">Apa Kata <span class="highlight">Pelanggan Kami?</span></h2>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Akun ML Legend yang aku beli langsung bisa dipakai. Fast response, ramah, dan garansi jelas. Rekomen banget!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AS</div>
+                    <div>
+                        <div class="author-name">Sompret</div>
+                        <div class="author-role">Gamer Casual</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Terbaik! Harganya paling murah, akun original, proses cepat. Udah beli 5 akun dari mereka, semua bagus!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">RD</div>
+                    <div>
+                        <div class="author-name">MassLann</div>
+                        <div class="author-role">Content Creator</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Aku skeptis awalnya, tapi setelah beli FF Diamond, langsung puas! Akun aman, garansi beneran, thanks!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">BW</div>
+                    <div>
+                        <div class="author-name">Ramz new</div>
+                        <div class="author-role">Streamer Twitch</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta reveal-up">
+        <h2>Jangan Tunda Lagi! 🎮</h2>
+        <p>Akun Game Impian Kamu Sudah Menunggu</p>
+        <a href="https://wa.me/6287814897713" target="_blank" class="btn-primary" style="text-decoration: none; display: inline-block;">⚡ BELI AKUN SEKARANG ⚡</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://wa.me/6287814897713" target="_blank">📲 WhatsApp</a>
+                <a href="#discord">💬 Discord</a>
+                <a href="#instagram">📸 Instagram</a>
+                <a href="#telegram">✈️ Telegram</a>
+            </div>
+            <p>&copy; 2026 Farid Shop Game | Community Store #1 Indonesia</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">100% Aman | Garansi Seumur Hidup | Fast Response 10 Jam</p>
+        </div>
+    </footer>
+
+    <script>
+        // ANIMATED WAVE BACKGROUND
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let W, H, t = 0;
+
+        function resize() {
+            W = canvas.width = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        function drawWave(yBase, amplitude, freq, speed, colorStart, colorEnd, alpha) {
+            ctx.beginPath();
+            ctx.moveTo(0, H);
+            for (let x = 0; x <= W; x++) {
+                const y = yBase + Math.sin(x * freq + t * speed) * amplitude + Math.cos(x * freq * 0.5 + t * speed * 0.7) * amplitude * 0.5;
+                ctx.lineTo(x, y);
+            }
+            ctx.lineTo(W, H);
+            ctx.closePath();
+            const grad = ctx.createLinearGradient(0, yBase - amplitude, W, yBase + amplitude);
+            grad.addColorStop(0, colorStart);
+            grad.addColorStop(1, colorEnd);
+            ctx.fillStyle = grad;
+            ctx.globalAlpha = alpha;
+            ctx.fill();
+            ctx.globalAlpha = 1;
+        }
+
+        function drawGlow(x, y, r, color) {
+            const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+            g.addColorStop(0, color);
+            g.addColorStop(1, 'transparent');
+            ctx.fillStyle = g;
+            ctx.globalAlpha = 0.12;
+            ctx.fillRect(x - r, y - r, r * 2, r * 2);
+            ctx.globalAlpha = 1;
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, W, H);
+
+            // Background glow orbs
+            drawGlow(W * 0.8, H * 0.2, 400, '#0ea5e9');
+            drawGlow(W * 0.1, H * 0.7, 350, '#fbbf24');
+            drawGlow(W * 0.5, H * 0.5, 300, '#0284c7');
+
+            // Wave layers
+            drawWave(H * 0.82, 40, 0.004, 0.6, 'rgba(14,165,233,0.8)', 'rgba(251,191,36,0.4)', 0.12);
+            drawWave(H * 0.75, 55, 0.003, 0.5, 'rgba(251,191,36,0.6)', 'rgba(14,165,233,0.8)', 0.10);
+            drawWave(H * 0.88, 30, 0.005, 0.8, 'rgba(56,189,248,0.9)', 'rgba(251,191,36,0.6)', 0.08);
+
+            // Diagonal light streak
+            ctx.save();
+            ctx.beginPath();
+            ctx.moveTo(W * 0.5, 0);
+            ctx.quadraticCurveTo(W * 0.75, H * 0.4, W * 0.9, H);
+            ctx.lineWidth = 2;
+            const streakGrad = ctx.createLinearGradient(W * 0.5, 0, W * 0.9, H);
+            streakGrad.addColorStop(0, 'rgba(56,189,248,0.6)');
+            streakGrad.addColorStop(0.5, 'rgba(251,191,36,0.4)');
+            streakGrad.addColorStop(1, 'rgba(14,165,233,0.1)');
+            ctx.strokeStyle = streakGrad;
+            ctx.globalAlpha = 0.4 + Math.sin(t * 0.5) * 0.1;
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(W * 0.6, 0);
+            ctx.quadraticCurveTo(W * 0.82, H * 0.3, W, H * 0.7);
+            ctx.lineWidth = 60;
+            const streakFill = ctx.createLinearGradient(W * 0.6, 0, W, H * 0.7);
+            streakFill.addColorStop(0, 'rgba(56,189,248,0.06)');
+            streakFill.addColorStop(1, 'rgba(251,191,36,0.03)');
+            ctx.strokeStyle = streakFill;
+            ctx.globalAlpha = 1;
+            ctx.stroke();
+            ctx.restore();
+
+            t += 0.01;
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
